@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {LocalDataSource} from 'ng2-smart-table';
 
 @Component({
@@ -6,7 +6,7 @@ import {LocalDataSource} from 'ng2-smart-table';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
   idForm: string = '';
   nombreEstado: string = '';
   mantenedor: string = "Estado Caso Técnico";
@@ -96,5 +96,9 @@ export class LoginComponent {
   cleanForm(){
     this.idForm = '';
     this.nombreEstado = '';
+  }
+
+  ngOnInit(): void {
+
   }
 }

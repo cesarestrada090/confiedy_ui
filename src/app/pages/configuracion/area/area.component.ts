@@ -16,7 +16,7 @@ export class AreaComponent {
   idForm: string = '';
   nombreArea: string = '';
   ceco: string = '';
-  mantenedor: string = "Área";
+  mantenedor: string = "Cálculo I - Detalle del Curso";
   responseListName: string = "areas";
   placeholder: string = 'Nombre ' + this.mantenedor;
 
@@ -48,17 +48,22 @@ export class AreaComponent {
     },
     columns: {
       id: {
-        title: 'ID',
+        title: 'Código Curso',
         type: 'number',
         filter: false
       },
       nombre: {
-        title: 'Nombre',
+        title: 'Nombre Docente',
         type: 'string',
         filter: false
       },
-      ceco: {
-        title: 'CECO',
+      Horario: {
+        title: 'Horario del Curso',
+        type: 'string',
+        filter: false
+      },
+      link: {
+        title: 'Link de la Clase',
         type: 'string',
         filter: false
       }

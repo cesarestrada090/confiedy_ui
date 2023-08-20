@@ -1,0 +1,144 @@
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/bootstrap/scss/buttons';
+@import 'node_modules/bootstrap/scss/grid';
+@import 'node_modules/bootstrap/scss/card';
+
+.auth-main {
+  position: relative;
+
+  .auth-wrapper {
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+
+    .saprator {
+      position: relative;
+      display: flex;
+      align-self: center;
+      justify-content: center;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: $border-color;
+        z-index: 1;
+      }
+
+      span {
+        font-size: 0.875rem;
+        padding: 20px 70px;
+        background: #fff;
+        z-index: 5;
+        text-transform: uppercase;
+        color: $headings-color;
+        font-weight: 500;
+        outline: 1px solid $border-color;
+        outline-offset: -16px;
+        border-radius: 10px;
+      }
+    }
+
+    &.v3 {
+      display: flex;
+      align-items: center;
+
+      .auth-form {
+        min-height: 100vh;
+        padding: 24px;
+      }
+    }
+    .auth-form {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 1;
+
+      .card {
+        width: 100%;
+        max-width: 480px;
+        box-shadow: none;
+      }
+
+      img {
+        padding-right: 15px;
+      }
+
+      h5 {
+        span {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .auth-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+
+$pc-body: #eef2f6;
+.auth-form {
+  background: $pc-body;
+}
+// new page css end
+
+@import '../../@theme/styles/themes';
+
+@include nb-install-component() {
+  nb-card {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+nb-card-body {
+  overflow: visible;
+  padding-top: 0;
+
+  > * {
+    margin-top: 1rem;
+  }
+}
+
+.full-name-inputs,
+.validation-checkboxes {
+  display: flex;
+  margin: 0 -0.5rem;
+
+  > * {
+    margin: 0 0.5rem;
+  }
+}
+
+.checkbox-radio {
+  display: flex;
+}
+
+.demo-items {
+  flex: 1 0 33%;
+}
+.buttons-row {
+  margin: -0.5rem;
+}
+
+button[nbButton] {
+  margin: 0.5rem;
+}
+
+.action-icon {
+  @include nb-ltr(margin-right, 0.5rem);
+  @include nb-rtl(margin-left, 0.5rem);
+}
+
+.actions-card {
+  height: 8rem;
+}

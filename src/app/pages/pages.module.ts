@@ -5,15 +5,12 @@ import { ThemeModule } from '../@theme/theme.module';
 import { PagesComponent } from './pages.component';
 import { PagesRoutingModule } from './pages-routing.module';
 import { ConfiguracionModule } from './configuracion/configuracion.module';
-import {AuthModule} from "./auth/auth.module";
 
 @NgModule({
   imports: [
     PagesRoutingModule,
     ThemeModule,
-    NbMenuModule,
-    ConfiguracionModule,
-    AuthModule
+    NbMenuModule
   ],
   declarations: [
     PagesComponent,

@@ -28,10 +28,6 @@ const routes: Routes = [{
         .then(m => m.CasosModule),
     },
     {
-      path: 'login',
-      redirectTo: 'login'
-    },
-    {
       path: '',
       redirectTo: 'general',
       pathMatch: 'full',
