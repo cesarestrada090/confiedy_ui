@@ -60,6 +60,7 @@ export class LoginComponent implements OnInit{
 
   constructor(private usuarioService: UsuarioService, private router: Router) {
     this.loadInitialData();
+    sessionStorage.removeItem('username')
   }
 
   private loadInitialData() {

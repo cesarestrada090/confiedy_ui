@@ -19,6 +19,7 @@ import {LoginComponent} from "./login/login.component";
 import {AuthRoutingModule} from "./auth-routing.module";
 import {ThemeModule} from "../@theme/theme.module";
 import {UsuarioService} from "../services/Usuario/UsuarioService";
+import {AuthGuardService} from "../services/Auth/AuthGuardService";
 @NgModule({
   imports: [
     AuthRoutingModule,
@@ -39,7 +40,8 @@ import {UsuarioService} from "../services/Usuario/UsuarioService";
     LoginComponent
   ],
   providers:[
-    UsuarioService
+    UsuarioService,
+    AuthGuardService
   ]
 })
 export class AuthModule { }

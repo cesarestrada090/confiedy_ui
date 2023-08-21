@@ -26,7 +26,7 @@ export class UsuarioService {
   }
 
   public isUserLoggedIn(): boolean {
-    let user = sessionStorage.getItem('isLoggedIn');
+    let user = sessionStorage.getItem('username');
     return !(user === null);
   }
 

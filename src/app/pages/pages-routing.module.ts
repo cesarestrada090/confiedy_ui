@@ -2,6 +2,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import { PagesComponent } from './pages.component';
+import {AuthGuardService} from "../services/Auth/AuthGuardService";
+import {UsuarioService} from "../services/Usuario/UsuarioService";
 
 const routes: Routes = [{
   path: '',
@@ -9,6 +11,7 @@ const routes: Routes = [{
   children: [
     {
       path: 'general',
+      canActivate:[AuthGuardService],
       loadChildren: () => import('./general/tables.module')
         .then(m => m.TablesModule),
     },
@@ -38,6 +41,7 @@ const routes: Routes = [{
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
+  providers:[UsuarioService]
 })
 export class PagesRoutingModule {
 }
