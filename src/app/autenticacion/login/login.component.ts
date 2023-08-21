@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {LocalDataSource} from 'ng2-smart-table';
+import {UsuarioService} from "../../services/Usuario/UsuarioService";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'ngx-login-form',
@@ -7,8 +9,9 @@ import {LocalDataSource} from 'ng2-smart-table';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit{
-  idForm: string = '';
-  nombreEstado: string = '';
+  username: string = '';
+  password: string = '';
+  error: string;
   mantenedor: string = "Estado Caso Técnico";
   responseListName: string = "estados";
   placeholder: string = 'Nombre ' + this.mantenedor;
@@ -55,7 +58,7 @@ export class LoginComponent implements OnInit{
 
   source: LocalDataSource = new LocalDataSource();
 
-  constructor() {
+  constructor(private usuarioService: UsuarioService, private router: Router) {
     this.loadInitialData();
   }
 
@@ -68,8 +71,8 @@ export class LoginComponent implements OnInit{
   }
 
   onSelectRow(event): void {
-    this.idForm = event.data.id;
-    this.nombreEstado = event.data.nombre;
+    this.username = event.data.id;
+    this.password = event.data.nombre;
   }
 
   onCreate(event): void {
@@ -77,15 +80,28 @@ export class LoginComponent implements OnInit{
   }
 
   getOperacion(): string {
-    return this.idForm === '' ? 'Crear' : 'Actualizar';
+    return this.username === '' ? 'Crear' : 'Actualizar';
   }
 
   shouldDisableSaveButton():boolean{
-    return this.nombreEstado === '';
+    return this.password === '';
   }
 
-  saveButton(){
-
+  loginToConfiedy(){
+    if (this.username === '' || this.password === ''){
+      this.error = 'El usuario y la contraseña son obligatorios';
+      return;
+    }
+    this.usuarioService.login(this.username,this.password).subscribe((data: any[]) => {
+      this.error = null;
+      sessionStorage.setItem('username', this.username);
+      this.router.navigateByUrl('pages/general');
+    },   err => {
+      if (err.status === 404){
+        this.error = 'Usuario y Contraseña Incorrectos';
+        return;
+      }
+    });
   }
   private manejarErrorSave() {
     return error => {
@@ -94,8 +110,8 @@ export class LoginComponent implements OnInit{
   }
 
   cleanForm(){
-    this.idForm = '';
-    this.nombreEstado = '';
+    this.username = '';
+    this.password = '';
   }
 
   ngOnInit(): void {

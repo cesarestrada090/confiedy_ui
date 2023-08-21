@@ -25,5 +25,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },{
     title: 'Cerrar Sesión',
     icon: 'power-outline',
+    link: '/autenticacion/login',
   }
 ];

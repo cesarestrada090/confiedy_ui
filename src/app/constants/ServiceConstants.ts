@@ -4,8 +4,8 @@ export class ServiceConstants {
 
   //Server Constant
   public static get GET_API_HOST(){
-    return 'http://54.235.31.201';
-    //return 'http://localhost';
+    //return 'http://54.235.31.201';
+    return 'http://localhost';
   }
 
   public static get GET_PORT() : string {
@@ -71,6 +71,9 @@ export class ServiceConstants {
 
   public static get GET_AREA_PATH() : string {
     return this.GET_API_PATH + '/area';
+  }
+  public static get GET_USUARIO_LOGIN_PATH() : string {
+    return this.GET_API_PATH + '/usuario/login';
   }
   public static get GET_SEDE_PATH() : string {
     return this.GET_API_PATH + '/sede';

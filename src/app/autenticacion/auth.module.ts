@@ -18,6 +18,7 @@ import {AuthComponent} from "./auth.component";
 import {LoginComponent} from "./login/login.component";
 import {AuthRoutingModule} from "./auth-routing.module";
 import {ThemeModule} from "../@theme/theme.module";
+import {UsuarioService} from "../services/Usuario/UsuarioService";
 @NgModule({
   imports: [
     AuthRoutingModule,
@@ -37,5 +38,8 @@ import {ThemeModule} from "../@theme/theme.module";
     AuthComponent,
     LoginComponent
   ],
+  providers:[
+    UsuarioService
+  ]
 })
 export class AuthModule { }
