@@ -8,15 +8,15 @@ export const MENU_ITEMS: NbMenuItem[] = [
 
   {
     title: 'Mi Perfil',
-    icon: 'grid-outline'
+    icon: 'person-outline'
   },
   {
     title: 'Mis Cursos',
-    icon: 'settings-2-outline',
+    icon: 'book-open-outline',
     children: [
       {
         title: 'Calculo 1',
-        link: '/pages/configuracion/area',
+        link: '/pages/casos/visita-tecnica',
       },{
         title: 'Matemática Financiera',
         link: '/pages/configuracion/sede',

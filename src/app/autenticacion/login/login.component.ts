@@ -93,9 +93,10 @@ export class LoginComponent implements OnInit{
       this.error = 'El usuario y la contraseña son obligatorios';
       return;
     }
-    this.usuarioService.login(this.username,this.password).subscribe((data: any[]) => {
+    this.usuarioService.login(this.username,this.password).subscribe((data: any) => {
       this.error = null;
       sessionStorage.setItem('username', this.username);
+      sessionStorage.setItem('nombreCompleto', data.nombreAlumno + ' ' + data.apellidoAlumno);
       this.router.navigateByUrl('pages/general');
     },   err => {
       if (err.status === 404){
