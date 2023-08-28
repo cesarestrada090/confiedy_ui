@@ -4,8 +4,8 @@ export class ServiceConstants {
 
   //Server Constant
   public static get GET_API_HOST(){
-    //return 'http://54.235.31.201';
-    return 'http://localhost';
+    return 'http://52.21.186.182';
+    //return 'http://localhost';
   }
 
   public static get GET_PORT() : string {
