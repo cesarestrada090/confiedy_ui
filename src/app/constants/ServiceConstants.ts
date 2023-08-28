@@ -54,6 +54,10 @@ export class ServiceConstants {
   public static get GET_VISITA_TECNICA_PATH() : string {
     return this.GET_API_PATH + '/visitaTecnica';
   }
+
+  public static get GET_CURSOS_PATH() : string {
+    return this.GET_API_PATH + '/cursosPorAlumnoId';
+  }
   public static get GET_DETALLE_VISITA_TECNICA_PATH() : string {
     return this.GET_API_PATH + '/detalleVisita';
   }

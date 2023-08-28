@@ -26,8 +26,8 @@ const routes: Routes = [{
         .then(m => m.EquiposModule),
     },
     {
-      path: 'casos',
-      loadChildren: () => import('./casos/casos.module')
+      path: 'aula',
+      loadChildren: () => import('./aula/casos.module')
         .then(m => m.CasosModule),
     },
     {

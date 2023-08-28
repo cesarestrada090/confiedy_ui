@@ -95,6 +95,7 @@ export class LoginComponent implements OnInit{
     }
     this.usuarioService.login(this.username,this.password).subscribe((data: any) => {
       this.error = null;
+      sessionStorage.setItem('alumnoId', data.alumnoId);
       sessionStorage.setItem('username', this.username);
       sessionStorage.setItem('nombreCompleto', data.nombreAlumno + ' ' + data.apellidoAlumno);
       this.router.navigateByUrl('pages/general');

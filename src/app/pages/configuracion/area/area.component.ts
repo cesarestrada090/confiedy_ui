@@ -16,7 +16,7 @@ export class AreaComponent {
   idForm: string = '';
   nombreArea: string = '';
   ceco: string = '';
-  mantenedor: string = "Cálculo I - Detalle del Curso";
+  mantenedor: string = "Cursos Matriculados";
   responseListName: string = "areas";
   placeholder: string = 'Nombre ' + this.mantenedor;
 
