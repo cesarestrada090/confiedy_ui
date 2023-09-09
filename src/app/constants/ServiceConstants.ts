@@ -4,12 +4,11 @@ export class ServiceConstants {
 
   //Server Constant
   public static get GET_API_HOST(){
-//    return 'http://52.21.186.182';
-    return 'http://localhost';
+    return 'http://ec2-3-90-70-80.compute-1.amazonaws.com';
   }
 
   public static get GET_PORT() : string {
-    return ':8089';
+    return ':8081';
   }
 
   public static get GET_ROOT_PATH() : string {
