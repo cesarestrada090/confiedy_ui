@@ -19,9 +19,9 @@ import {SuministroService} from "../../services/Suministro/SuministroService";
 import {TipoSuministroService} from "../../services/TipoSuministro/TipoSuministroService";
 import {EstadoSuministroService} from "../../services/EstadoSuministro/EstadoSuministroService";
 import {TecnicoService} from "../../services/TecnicoService/TecnicoService";
-import {CasoComponent} from "./caso/caso.component";
+import {PerfilComponent} from "./caso/perfil.component";
 import {EstadoCasoTecnicoService} from "../../services/EstadoCasoTecnico/EstadoCasoTecnicoService";
-import {CasoService} from "../../services/Caso/CasoService";
+import {PerfilService} from "../../services/Caso/PerfilService";
 import {EquipoService} from "../../services/Equipo/EquipoService";
 import {CursosService} from "../../services/VisitaTecnica/cursos.service";
 import {DetalleVisitaTecnicaService} from "../../services/DetalleVisitaTecnica/DetalleVisitaTecnicaService";
@@ -50,7 +50,7 @@ import {OperadorService} from "../../services/Operador/OperadorService";
   ],
   declarations: [
     CasosComponent,
-    CasoComponent,
+    PerfilComponent,
     CursosComponent
   ],
   providers: [
@@ -59,7 +59,7 @@ import {OperadorService} from "../../services/Operador/OperadorService";
     TipoSuministroService,
     EstadoSuministroService,
     EstadoCasoTecnicoService,
-    CasoService,
+    PerfilService,
     EquipoService,
     CursosService,
     EstadoVisitaService,

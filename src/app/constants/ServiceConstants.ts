@@ -4,12 +4,12 @@ export class ServiceConstants {
 
   //Server Constant
   public static get GET_API_HOST(){
-    return 'http://52.21.186.182';
-    //return 'http://localhost';
+//    return 'http://52.21.186.182';
+    return 'http://localhost';
   }
 
   public static get GET_PORT() : string {
-    return ':8081';
+    return ':8089';
   }
 
   public static get GET_ROOT_PATH() : string {
@@ -79,6 +79,13 @@ export class ServiceConstants {
   public static get GET_USUARIO_LOGIN_PATH() : string {
     return this.GET_API_PATH + '/usuario/login';
   }
+  public static get GET_USUARIO_BY_ID_PATH() : string {
+    return this.GET_API_PATH + '/usuario/' + sessionStorage.getItem('userId');
+  }
+
+  public static get GET_USUARIO_PATH() : string {
+    return this.GET_API_PATH + '/usuario/';
+  }
   public static get GET_SEDE_PATH() : string {
     return this.GET_API_PATH + '/sede';
   }
@@ -100,6 +107,10 @@ export class ServiceConstants {
   }
   public static get GET_CASO_PATH() : string {
     return this.GET_API_PATH + '/casoTecnico';
+  }
+
+  public static get GET_PERFIL_PATH() : string {
+    return this.GET_API_PATH + '/perfil';
   }
   public static get GET_CLIENTE_PATH() : string {
     return this.GET_API_PATH + '/cliente';

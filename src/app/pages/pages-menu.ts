@@ -8,6 +8,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
 
   {
     title: 'Mi Perfil',
-    icon: 'person-outline'
+    icon: 'person-outline',
+    link: '/pages/aula/perfil'
   }
 ];

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { CasosComponent } from './casos.component';
-import {CasoComponent} from "./caso/caso.component";
+import {PerfilComponent} from "./caso/perfil.component";
 import {CursosComponent} from "./cursos/cursos.component";
 
 const routes: Routes = [
@@ -11,8 +11,8 @@ const routes: Routes = [
     component: CasosComponent,
     children: [
       {
-        path: 'caso',
-        component: CasoComponent
+        path: 'perfil',
+        component: PerfilComponent
       },
       {
         path: 'cursos',

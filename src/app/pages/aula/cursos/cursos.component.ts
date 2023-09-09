@@ -3,7 +3,7 @@ import {LocalDataSource, ServerDataSource} from 'ng2-smart-table';
 import {HttpClient,} from "@angular/common/http";
 import {ServiceConstants} from "../../../constants/ServiceConstants";
 import {NbToastrService} from "@nebular/theme";
-import {CasoService} from "../../../services/Caso/CasoService";
+import {PerfilService} from "../../../services/Caso/PerfilService";
 import {CursosService} from "../../../services/VisitaTecnica/cursos.service";
 import {EstadoVisitaService} from "../../../services/EstadoVisita/EstadoVisitaService";
 import {EstadoDetalleService} from "../../../services/EstadoDetalle/EstadoDetalleService";
@@ -197,7 +197,7 @@ export class CursosComponent {
               private estadoDetalleService : EstadoDetalleService,
               private tecnicoService : TecnicoService,
               private operadorService : OperadorService,
-              private casoService : CasoService,
+              private casoService : PerfilService,
               private httpClient: HttpClient,
               private notificacionService: NbToastrService) {
     this.loadInitialData();

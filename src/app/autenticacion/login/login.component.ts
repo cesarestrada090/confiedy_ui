@@ -97,6 +97,7 @@ export class LoginComponent implements OnInit{
       this.error = null;
       sessionStorage.setItem('alumnoId', data.alumnoId);
       sessionStorage.setItem('username', this.username);
+      sessionStorage.setItem('userId', data.id);
       sessionStorage.setItem('nombreCompleto', data.nombreAlumno + ' ' + data.apellidoAlumno);
       this.router.navigateByUrl('pages/general');
     },   err => {
