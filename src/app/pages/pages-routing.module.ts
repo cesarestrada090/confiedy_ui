@@ -16,16 +16,6 @@ const routes: Routes = [{
         .then(m => m.TablesModule),
     },
     {
-      path: 'configuracion',
-      loadChildren: () => import('./configuracion/configuracion.module')
-        .then(m => m.ConfiguracionModule),
-    },
-    {
-      path: 'equipos',
-      loadChildren: () => import('./equipos/equipos.module')
-        .then(m => m.EquiposModule),
-    },
-    {
       path: 'aula',
       loadChildren: () => import('./aula/casos.module')
         .then(m => m.CasosModule),

@@ -21,7 +21,7 @@ export class PerfilComponent {
   carrera: string = '';
   fechaNacimiento: Date;
 
-  mantenedor: string = "Mi Perfil";
+  mantenedor: string = "Mi Perfil Académico";
   responseListName: string = "perfil";
   errorMsg: string = '';
   placeholder: string = 'Nombre ' + this.mantenedor;
