@@ -10,13 +10,13 @@
       </nb-card>
     </div>
 
-    <ng2-smart-table class="order-table" (custom)="onViewVisitaTecnica($event)"   (userRowSelect)="onSelectRow($event)" [settings]="settings" [source]="source"  (deleteConfirm)="onDeleteConfirm($event)">
+    <ng2-smart-table class="order-table" (custom)="onViewCurso($event)" (userRowSelect)="onSelectRow($event)" [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
     </ng2-smart-table>
 
     <br/><br/><br/><br/>
-    <nb-card *ngIf="selectedId">
+    <nb-card *ngIf="selectedCourseId">
       <nb-card-header>
-        Detalle de La Visita técnica con Id:  {{selectedId}} <br> Código Caso Técnico: {{codigoCaso}}
+        Evaluaciones del curso:  {{codigoCursoSeleccionado}} <br>
       </nb-card-header>
       <nb-card-body>
 
@@ -29,21 +29,6 @@
               </div>
 
 
-              <div class="full-name-inputs">
-                <nb-select placeholder="Técnico" *ngIf="tecnicoCbo" fullWidth (selectedChange)="changeTecnicoId($event)" selected="{{tecnicoId}}" >
-                  <nb-option *ngFor="let option of tecnicoCbo" value="{{ option.id }}">
-                    {{ option.nombre }}
-                  </nb-option>
-                </nb-select>
-              </div>
-
-              <div class="full-name-inputs">
-                <nb-select placeholder="Operador" *ngIf="operadorCbo" fullWidth (selectedChange)="changeOperadorId($event)" selected="{{operadorId}}" >
-                  <nb-option *ngFor="let option of operadorCbo" value="{{ option.id }}">
-                    {{ option.nombre }}
-                  </nb-option>
-                </nb-select>
-              </div>
 
               <div class="full-name-inputs">
                 <nb-select placeholder="Estado Atención" *ngIf="estadoDetalleVisitaCbo" fullWidth (selectedChange)="changeEstadoDetalleVisita($event)" selected="{{estadoDetalleVisitaId}}" >
@@ -84,13 +69,8 @@
           </nb-card>
         </div>
 
-        <ng2-smart-table  *ngIf="selectedId" class="order-table" (userRowSelect)="onSelectDetailRow($event)" [settings]="detailSettings" [source]="detalleSource">
+        <ng2-smart-table *ngIf="selectedCourseId" class="order-table" (userRowSelect)="onSelectDetailRow($event)" [settings]="detailSettings" [source]="detalleSource">
         </ng2-smart-table>
-        <div class="buttons-row">
-          <button (click)="activarDesactivarDetalleForm()" nbButton [status]="'primary'">
-            Activar/Limpiar formulario Detalle
-          </button>
-        </div>
       </nb-card-body>
     </nb-card>
 

@@ -20,6 +20,7 @@ export class PerfilComponent {
   apellido: string = '';
   carrera: string = '';
   fechaNacimiento: Date;
+  isReady = false;
 
   mantenedor: string = "Mi Perfil Académico";
   responseListName: string = "perfil";
@@ -43,6 +44,7 @@ export class PerfilComponent {
       this.apellido = data.apellidoAlumno;
       this.carrera = data.carrera;
       this.fechaNacimiento = data.fechaNacimiento;
+      this.isReady = true;
     });
   }
 

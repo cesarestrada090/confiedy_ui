@@ -10,7 +10,6 @@ import {EstadoDetalleService} from "../../../services/EstadoDetalle/EstadoDetall
 import {TecnicoService} from "../../../services/TecnicoService/TecnicoService";
 import {OperadorService} from "../../../services/Operador/OperadorService";
 import {DetalleVisitaTecnicaService} from "../../../services/DetalleVisitaTecnica/DetalleVisitaTecnicaService";
-import {Time} from "@angular/common";
 
 @Component({
   selector: 'visita-tecnica-table',
@@ -20,7 +19,8 @@ import {Time} from "@angular/common";
 export class CursosComponent {
   idForm: string = '';
 
-  selectedId: number;
+  selectedCourseId: number;
+  codigoCursoSeleccionado: number;
   selectedDetailId: boolean = false;
   codigoCaso: string;
 
@@ -90,6 +90,11 @@ export class CursosComponent {
         type: 'string',
         filter: false
       },
+      universidad: {
+        title: 'Universidad',
+        type: 'string',
+        filter: false
+      },
       ciclo: {
         title: 'Ciclo',
         type: 'string',
@@ -132,56 +137,24 @@ export class CursosComponent {
       position: 'right',
     },
     columns: {
-      id: {
-        title: 'ID',
+      numero_unidad: {
+        title: 'Número de Evaluación',
         type: 'number',
         filter: false
       },
-      visitaTecnicaId: {
-        title: 'Código Visita Técnica',
-        type: 'number',
-        filter: false
-      },
-      nombreTecnico: {
-        title: 'Nombre Técnico',
+      horario: {
+        title: 'Horario',
         type: 'string',
         filter: false
       },
-      nombreOperador: {
-        title: 'Nombre Operador',
+      linkClase: {
+        title: 'Link de la clase',
         type: 'string',
         filter: false
       },
-      fecha: {
-        title: 'Fecha Creación',
+      linkMaterial: {
+        title: 'Link del Material',
         type: 'date',
-        filter: false,
-        class: 'colDate',
-        valuePrepareFunction: (cell: any, row: any) =>{
-          let parsedDate = new Date(cell);
-          return parsedDate.toLocaleDateString('ES-en', { weekday:"long", year:"numeric", month:"short", day:"numeric"});
-        }
-      },
-      hora: {
-        title: 'Hora',
-        type: 'string',
-        filter: false,
-        class: 'colDate',
-        valuePrepareFunction: (cell: any, row: any) =>{
-          let parsedDate = new Date(cell);
-          const minutes = String(parsedDate.getMinutes()).padStart(2, '0');
-          const hour = String(parsedDate.getHours()).padStart(2, '0');
-          return hour +':'+ minutes;
-        }
-      },
-      estadoEstadoDetalleVisita: {
-        title: 'Estado',
-        type: 'date',
-        filter: false
-      },
-      comentario: {
-        title: 'Comentario',
-        type: 'string',
         filter: false
       }
     },
@@ -217,15 +190,14 @@ export class CursosComponent {
       event.confirm.reject();
     }
   }
-  onViewVisitaTecnica(event): void {
+  onViewCurso(event): void {
     this.cleanDetalleForm();
-    this.createDetailFormEnabled = false;
-    this.selectedId = event.data.id;
-    this.codigoCaso = event.data.codigoCasoTecnico;
+    this.selectedCourseId = event.data.id;
+    this.codigoCursoSeleccionado = event.data.nombreCurso;
     this.detalleSource = new ServerDataSource(this.httpClient,
       {
-        endPoint: ServiceConstants.GET_DETALLE_VISITA_TECNICA_PATH + '/'+this.selectedId,
-        dataKey: 'detalleVisitas',
+        endPoint: ServiceConstants.GET_DETALLE_CURSO_PATH + this.selectedCourseId + '/' +  sessionStorage.getItem('alumnoId'),
+        dataKey: '',
         pagerPageKey: 'page',
         pagerLimitKey: 'size',
         totalKey: 'totalItems', //  total records returned in response path
@@ -239,13 +211,6 @@ export class CursosComponent {
   }
 
   onSelectDetailRow(event): void {
-    this.createDetailFormEnabled = true;
-    this.selectedDetailId = true;
-    this.idDetalleForm = event.data.id;
-    this.estadoDetalleVisitaId = event.data.estadoId;
-    this.comentario = event.data.comentario
-    this.horaDetalle = new Date(event.data.hora);
-    this.fechaCreacionDetalle = event.data.fecha;
   }
 
   onCreate(event): void {
@@ -290,7 +255,7 @@ export class CursosComponent {
   cleanForm(){
     this.idForm = '';
     this.fechaCreacion = null;
-    this.selectedId = null;
+    this.selectedCourseId = null;
     this.idDetalleForm = '';
     this.selectedDetailId = null;
     this.cleanDetalleForm();

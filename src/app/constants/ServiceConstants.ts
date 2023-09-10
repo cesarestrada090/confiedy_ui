@@ -5,6 +5,7 @@ export class ServiceConstants {
   //Server Constant
   public static get GET_API_HOST(){
     return 'http://ec2-3-90-70-80.compute-1.amazonaws.com';
+    //return 'http://localhost';
   }
 
   public static get GET_PORT() : string {
@@ -59,6 +60,9 @@ export class ServiceConstants {
   }
   public static get GET_DETALLE_VISITA_TECNICA_PATH() : string {
     return this.GET_API_PATH + '/detalleVisita';
+  }
+  public static get GET_DETALLE_CURSO_PATH() : string {
+    return this.GET_API_PATH + '/evaluacionCurso/';
   }
   public static get GET_TIPO_SUMINISTRO_PATH() : string {
     return this.GET_API_PATH + '/tipoSuministro';
